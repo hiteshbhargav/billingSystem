@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body
+{
+  background: linear-gradient(to right, #d3cce3, #e9e4f0);
+}
+label {
+  color: black !important;
+}
+.error {
+  color: red;
+  margin: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+#main {
+  width: 99%;
+  margin: 20px auto;
+}
+.login-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  width: 50%;
+}

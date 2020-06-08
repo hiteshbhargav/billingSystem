@@ -1,14 +1,24 @@
+const sort = (e) => {
+  let sortVal = document.getElementById("sort-company").value;
 
-db.collection("bills").onSnapshot((snapshot) => {
-  fetchBills(snapshot.docs);
-});
+  if (sortVal === "all") {
+    db.collection("bills").onSnapshot((snapshot) => {
+      fetchBills(snapshot.docs);
+    });
+  } else {
+    db.collection("bills")
+      .where("company", "==", `${sortVal}`)
+      .onSnapshot((snapshot) => {
+        fetchBills(snapshot.docs);
+      });
+  }
+};
 
 //fetchbills
 const fetchBills = (data) => {
   let billTable = "";
   data.forEach((doc) => {
     const bills = doc.data();
-    console.log(bills);
     const li = `
     <tr>
     <td>${bills.dateonbill}</td>
@@ -28,16 +38,24 @@ const fetchBills = (data) => {
 
 document.getElementById("submit").addEventListener("click", (e) => {
   e.preventDefault();
-  let dateonbill = document.getElementById("date-on-bill").value;
-  let billpaidon = document.getElementById('bill-paid-on').value;
-  let company = document.getElementById("company").value;
-  let billNo = document.getElementById("bill-no").value;
-  let noofbags = document.getElementById('no-of-bags').value;
-  let weight = document.getElementById('weight').value;
-  let amount = document.getElementById("amount").value;
-  let description = document.getElementById("description").value;
-
-  if (dateonbill == 0 || billpaidon == 0 || company == 0 || billNo == 0 || noofbags == 0 || weight == 0 || amount == 0 || description == 0) {
+  let dateonbill = document.getElementById("date-on-bill").value,
+    billpaidon = document.getElementById("bill-paid-on").value,
+    company = document.getElementById("company").value,
+    billNo = document.getElementById("bill-no").value,
+    noofbags = document.getElementById("no-of-bags").value,
+    weight = document.getElementById("weight").value,
+    amount = document.getElementById("amount").value,
+    description = document.getElementById("description").value;
+  if (
+    dateonbill == 0 ||
+    billpaidon == 0 ||
+    company == 0 ||
+    billNo == 0 ||
+    noofbags == 0 ||
+    weight == 0 ||
+    amount == 0 ||
+    description == 0
+  ) {
     document.querySelector(".error").innerHTML = "Fields can't remain empty";
   } else {
     db.collection("bills")

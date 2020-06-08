@@ -1,153 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billing</title>
 
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 
-    <!-- Materialize css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+  <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- google fonts poppins -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- font awesome icons -->
-  </head>
-  <body>
-    <!-- Image and text -->
-    <nav class="indigo">
-      <a class="brand-logo" href="#">
-        <img src="" width="30" height="30" class="" alt="" />
-        Billing
-      </a>
-      <ul class="right logged-in" style="display: none;">
-        <li><a href="#">Logout</a></li>
-      </ul>
-    </nav>
+  <!-- Materialize css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <main id="main">
-      <div class="row">
-        <div class="col l3 m12">
-          <form>
-            <div class="col l6">
-              <label for="Date">Date on bill :</label>
-              <input type="text" class="datepicker" id="date-on-bill" />
-            </div>
-            <div class="col l6">
-              <label for="Date">Bill paid on :</label>
-              <input type="text" class="datepicker" id="bill-paid-on" />
-            </div>
+  <!-- google fonts poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- font awesome icons -->
+</head>
 
-            <label for="">Company :</label>
-            <br />
-            <select id="company">
-              <option value="" disabled selected>Company</option>
-              <option value="Akshar Agri">Akshar Agri</option>
-              <option value="Jayesh kumar Sham ji">jayesh kumar Sham ji</option>
-              <option value="Mohan lal & Sons">Mohan lal & Sons</option>
-              <option value="Punagri Enterprise">Punagri Enterprise</option>
-              <option value="Rameshwar Corporation"
-                >Rameshwar Corporation</option
-              >
-              <option value="Rajni Trading">Rajni Trading</option>
-              <option value="Shree Jalpa Maa">Shree Jalpa Maa</option>
-              <option value="Siddhart Traders">Siddhart Traders</option>
-              <option value="Veer Enterprise">Veer Enterprise</option>
-              <option value="Shree Odhavram Enterprise"
-                >Shree Odhavram Enterprise</option
-              >
-              <option value="Yogesh Kumar">Yogesh Kumar</option>
-            </select>
-            <br />
-
-            <label for="">Bill No: </label>
-            <input type="text" id="bill-no" /> <br />
-            <label for="">No of bags: </label>
-            <input type="text" id="no-of-bags" /> <br />
-            <label for="">Weight (kg): </label>
-            <input type="text" id="weight" /> <br />
-            <label for="">Amount: </label>
-            <input type="text" id="amount" /> <br />
-            <label for="textarea1">Description</label>
-            <textarea id="description" class="materialize-textarea"></textarea>
-
-            <h6 class="error"></h6>
-            <button class="btn teal darken-4" id="submit">Submit</button>
-            <button type="reset" onclick="reset()" class="btn teal darken-4">Reset</button>
-          </form>
-        </div>
-        <div class="col l9 m12">
-          <table class="table centered">
-            <thead>
-              <tr>
-                <th scope="col">Date on Bill</th>
-                <th scope="col">Bill paid on</th>
-                <th scope="col">Company Name</th>
-                <th scope="col">Bill No</th>
-                <th scope="col">No of bags</th>
-                <th scope="col">Weight (kg)</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Description</th>
-              </tr>
-            </thead>
-            <tbody class="bills-table-content"></tbody>
-          </table>
-        </div>
+<body>
+  <!-- Image and text -->
+  <nav class="">
+    <a class="brand-logo" href="#">
+      <img src="" width="30" height="30" class="" alt="" />
+      Billing
+    </a>
+    <ul class="right logged-in" style="display: none;">
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+  <div class="sort-div">
+    <div class="row white-text">
+      <div class="col l3 s12">
+        <h5>sort by company name : </h5>
       </div>
-    </main>
+      <div class="col l6 s12">
+        <select id="sort-company" onchange="sort()">
+          <option>Company</option>
+          <option value="all">All</option>
+          <option value="Akshar Agri">Akshar Agri</option>
+          <option value="Jayesh kumar Sham ji">jayesh kumar Sham ji</option>
+          <option value="Mohan lal & Sons">Mohan lal & Sons</option>
+          <option value="Punagri Enterprise">Punagri Enterprise</option>
+          <option value="Rameshwar Corporation">Rameshwar Corporation</option>
+          <option value="Rajni Trading">Rajni Trading</option>
+          <option value="Shree Jalpa Maa">Shree Jalpa Maa</option>
+          <option value="Siddhart Traders">Siddhart Traders</option>
+          <option value="Veer Enterprise">Veer Enterprise</option>
+          <option value="Shree Odhavram Enterprise">Shree Odhavram Enterprise</option>
+          <option value="Yogesh Kumar">Yogesh Kumar</option>
+        </select>
+      </div>
+    </div>
 
-    <!-- here are all the scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-      // script for date picker
-      document.addEventListener("DOMContentLoaded", function () {
-        var elems = document.querySelectorAll(".datepicker");
-        var instances = M.Datepicker.init(elems);
-      });
-      //script for select
-      document.addEventListener("DOMContentLoaded", function () {
-        var elems = document.querySelectorAll("select");
-        var instances = M.FormSelect.init(elems);
-      });
-    </script>
+  </div>
+  <main id="main">
+    <div class="row">
+      <div class="col l3 m12">
+        <form>
+          <div class="col l6">
+            <label for="Date">Date on bill :</label>
+            <input type="text" class="datepicker" id="date-on-bill" />
+          </div>
+          <div class="col l6">
+            <label for="Date">Bill paid on :</label>
+            <input type="text" class="datepicker" id="bill-paid-on" />
+          </div>
 
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyBGwxr_WKsct3LKX8ecAXZRFvNz4YA3utE",
-        authDomain: "billing-9328b.firebaseapp.com",
-        databaseURL: "https://billing-9328b.firebaseio.com",
-        projectId: "billing-9328b",
-        storageBucket: "billing-9328b.appspot.com",
-        messagingSenderId: "619696242826",
-        appId: "1:619696242826:web:8b5eac150f470de3be2d73",
-        measurementId: "G-BDTHC7Q14L",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+          <label for="">Company :</label>
+          <br />
+          <select id="company">
+            <option value="" disabled selected>Company</option>
+            <option value="Akshar Agri">Akshar Agri</option>
+            <option value="Jayesh kumar Sham ji">jayesh kumar Sham ji</option>
+            <option value="Mohan lal & Sons">Mohan lal & Sons</option>
+            <option value="Punagri Enterprise">Punagri Enterprise</option>
+            <option value="Rameshwar Corporation">Rameshwar Corporation</option>
+            <option value="Rajni Trading">Rajni Trading</option>
+            <option value="Shree Jalpa Maa">Shree Jalpa Maa</option>
+            <option value="Siddhart Traders">Siddhart Traders</option>
+            <option value="Veer Enterprise">Veer Enterprise</option>
+            <option value="Shree Odhavram Enterprise">Shree Odhavram Enterprise</option>
+            <option value="Yogesh Kumar">Yogesh Kumar</option>
+          </select>
+          <br />
 
-      const db = firebase.firestore();
-      const auth = firebase.auth();
-    </script>
-    <script src="index.js"></script>
-    <script src="logout.js"></script>
-  </body>
+          <label for="">Bill No: </label>
+          <input type="text" id="bill-no" /> <br />
+          <label for="">No of bags: </label>
+          <input type="text" id="no-of-bags" /> <br />
+          <label for="">Weight (kg): </label>
+          <input type="text" id="weight" /> <br />
+          <label for="">Amount: </label>
+          <input type="text" id="amount" /> <br />
+          <label for="textarea1">Description</label>
+          <textarea id="description" class="materialize-textarea"></textarea>
+
+          <h6 class="error"></h6>
+          <button class="btn" id="submit">Submit</button>
+          <button type="reset" onclick="reset()" class="btn">Reset</button>
+        </form>
+      </div>
+      <div class="col l9 m12">
+        <table class="table centered">
+          <thead>
+            <tr>
+              <th scope="col">Date on Bill</th>
+              <th scope="col">Bill paid on</th>
+              <th scope="col">Company Name</th>
+              <th scope="col">Bill No</th>
+              <th scope="col">No of bags</th>
+              <th scope="col">Weight (kg)</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody class="bills-table-content"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- here are all the scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // script for date picker
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll(".datepicker");
+      var instances = M.Datepicker.init(elems);
+    });
+    //script for select
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll("select");
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBGwxr_WKsct3LKX8ecAXZRFvNz4YA3utE",
+      authDomain: "billing-9328b.firebaseapp.com",
+      databaseURL: "https://billing-9328b.firebaseio.com",
+      projectId: "billing-9328b",
+      storageBucket: "billing-9328b.appspot.com",
+      messagingSenderId: "619696242826",
+      appId: "1:619696242826:web:8b5eac150f470de3be2d73",
+      measurementId: "G-BDTHC7Q14L",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+  </script>
+  <script src="index.js"></script>
+  <script src="logout.js"></script>
+</body>
+
 </html>

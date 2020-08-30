@@ -1,3 +1,5 @@
+// 
+
 const sort = (e) => {
   let sortVal = document.getElementById("sort-company").value;
 

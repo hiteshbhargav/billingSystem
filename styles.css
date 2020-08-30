@@ -3,20 +3,24 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
-:root {
-  --nav: #402336;
-  --btn: #ef485c;
-  --bg: #fedee1;
+/* :root {
+  --nav: #b8c1ec;
+  --btn: #eebbc3;
+  --btn-text: #232946;
+  --bg: #232946;
   --sort-div: #9e8592;
-}
+} */
 body {
-  background: var(--bg);
+  /* background: var(--bg); */
 }
 nav {
-  background: var(--nav) !important;
+  /* background: var(--nav) !important; */
 }
+
 .btn {
-  background: var(--btn) !important;
+  background: #eebbc3;
+  color: #232946;
+  font-weight: bold;
 }
 .sort-div {
   background: var(--sort-div);
@@ -27,7 +31,7 @@ nav {
   margin: 40px auto !important;
 }
 label {
-  color: black !important;
+  /* color: black !important; */
 }
 .error {
   color: red;

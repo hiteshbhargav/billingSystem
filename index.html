@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billing</title>
 
-    <link
-    href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
-    rel="stylesheet"
-    type="text/css"
-    />
-    
-    <!-- Materialize css -->
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    
-    <!-- google fonts poppins -->
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billing</title>
 
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- font awesome icons -->
-  </head>
-  <body>
+  <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- Materialize css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+  <!-- google fonts poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- font awesome icons -->
+</head>
+
+<body>
+  <main>
+
     <div class="login-container">
       <h4>Login</h4>
       <br />
@@ -43,32 +38,39 @@
         <h6 class="error"></h6>
         <button class="btn yellow darken-2 z-depth-0">Login</button>
       </form>
-      <small class="black-text">This is a personal site, only authorized users are allowd to login</small>
+      <small class="black-text">This is a personal project, only authorized users are allowd to access</small>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyBGwxr_WKsct3LKX8ecAXZRFvNz4YA3utE",
-        authDomain: "billing-9328b.firebaseapp.com",
-        databaseURL: "https://billing-9328b.firebaseio.com",
-        projectId: "billing-9328b",
-        storageBucket: "billing-9328b.appspot.com",
-        messagingSenderId: "619696242826",
-        appId: "1:619696242826:web:8b5eac150f470de3be2d73",
-        measurementId: "G-BDTHC7Q14L",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+  </main>
 
-      const db = firebase.firestore();
-      const auth = firebase.auth();
-    </script>
-    <script src="auth.js"></script>
-  </body>
+  <footer>
+    <p>Made by Hitesh Bhargav</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBGwxr_WKsct3LKX8ecAXZRFvNz4YA3utE",
+      authDomain: "billing-9328b.firebaseapp.com",
+      databaseURL: "https://billing-9328b.firebaseio.com",
+      projectId: "billing-9328b",
+      storageBucket: "billing-9328b.appspot.com",
+      messagingSenderId: "619696242826",
+      appId: "1:619696242826:web:8b5eac150f470de3be2d73",
+      measurementId: "G-BDTHC7Q14L",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+  </script>
+  <script src="auth.js"></script>
+</body>
+
 </html>

@@ -30,9 +30,6 @@ nav {
 .sort-div col {
   margin: 40px auto !important;
 }
-label {
-  /* color: black !important; */
-}
 .error {
   color: red;
   margin: 10px;
@@ -42,6 +39,7 @@ label {
 #main {
   width: 99%;
   margin: 20px auto;
+  
 }
 .login-container {
   position: absolute;
@@ -49,4 +47,15 @@ label {
   top: 40%;
   left: 50%;
   width: 50%;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0px;
+}
+footer p {
+  width: 90%;
+  margin: auto;
 }
